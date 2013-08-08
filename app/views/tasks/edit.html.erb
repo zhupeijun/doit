@@ -1,0 +1,14 @@
+<%= form_tag edit_tasks_path(@task) do %>
+	<div>
+		<%= text_field_tag :content, params[:content] %>
+	</div>
+	<div>
+		<table>
+			<tr>
+				<td>
+					<%= submit_tag 'Save' %>
+				</td>
+			</tr>
+		</table>
+	</div>
+<% end %>

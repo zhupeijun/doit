@@ -1,0 +1,38 @@
+<div class="project_menu">
+	<div class="project_menu_delete">
+		Delete this project
+	</div>
+</div>
+<div class="project_list">
+	<% @projects.each do |p| %>
+		<% c = "project" %>
+		<% if "#{p.id}" == "#{@pid}" then %>
+			<% c = "project_focus" %>
+		<% end %>
+		<div class="project_parent">
+			<div class="<%= c %>">
+				<table class="project_table">
+					<tr>
+						<td align=center class="tag_td">
+							<div class="project_menu_btn"></div>
+						</td>
+						<td class="title_td">
+							<%= p.title %>
+						</td>
+						<td class="title_link_td">
+							<%= link_to tasks_path(:project_id => p), remote: true do %>
+								<span class="find_task">Submit</span>
+							<% end %>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="project_operation">
+				<%= link_to project_path(p), method: :delete, remote: true do %>
+					<span class="project_delete">Delete</span>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>
+

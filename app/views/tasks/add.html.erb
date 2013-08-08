@@ -1,0 +1,15 @@
+<div class="task_add">
+	<%= form_tag "tasks", remote: true do %>
+		<table>
+			<tr>
+				<td class="task_add_text_field">
+					<%= text_field_tag :content, params[:content] %>
+					<%= hidden_field_tag :project_id, @pid %>
+				</td>
+				<td class="task_add_submit">
+					<%= submit_tag 'Add' %>
+				</td>
+			</tr>
+		</table>
+	<% end %>
+</div>

@@ -1,0 +1,21 @@
+$(".project_show").html("<%=j render :template => 'projects/show' %>")
+
+$(".project_show").hide();
+
+$(".project_menu_btn").click(function(){
+
+	if($(".project_menu").is(":visible")){
+		$(".project_menu").slideUp(300);
+	} else {
+		var p = $(this).parentsUntil(".project_parent").parent().find(".project");
+		p.after($(".project_menu"));
+		$(".project_menu").slideDown(300);
+	}
+});
+
+
+$(".project_menu_delete").click(function(){
+	$(this).parentsUntil(".project_parent").parent().find(".project_delete").click();
+});
+
+$(".project_show").fadeIn(1500);

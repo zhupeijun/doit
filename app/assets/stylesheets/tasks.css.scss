@@ -1,0 +1,141 @@
+// Place all the styles related to the Tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.finished_task_list {
+	margin-top:  50px;
+	border-top: 1px dashed gray;
+	//background-color:  gray;
+	color: #C2C2C2;
+}
+
+
+.task_finished_checkbox {
+
+	input[type="checkbox"] {
+		border: 1px solid gray;
+	}
+}
+
+.task_finished_btn {
+	display: none;
+}
+
+.task_content_div {
+	//background-color: red;
+
+}
+
+.project_menu {
+
+	background-color: #FCFCFC;
+	border-radius: 2px;
+	border-top: 3px solid #7CCD7C;
+	border-bottom: 3px solid #7CCD7C;
+	display: none;
+
+	.project_menu_delete {
+		padding: 10px;
+	}
+
+	.project_menu_delete:hover {
+		background-color: #303030;
+		color: white;
+		padding: 10px;
+	}
+}
+
+.task_item {
+	display: none;
+}
+
+.task_content {
+	width: 500px;
+	padding: 10px;
+	//border: 1px solid #B8B8B8;
+	//background-color: #E3E3E3;
+	//border-radius: 2px;
+	border-bottom: 1px solid #E3E3E3;
+}
+
+.task_content:hover {
+	cursor: pointer;
+	background-color: #F2F2F2;
+}
+
+
+.task_edit {
+	margin-top: 2px;
+	display: none;
+	width: 500px;
+	padding:  7px;
+	//border: 1px solid #9AC0CD;
+	background-color: #B0B0B0;
+	border-radius: 2px;
+
+	.task_edit_text_field {
+		input {
+			width: 470px;
+			border: 2px solid #FFEC8B;
+			padding: 8px;
+			border-radius: 2px;
+			//background-color: #B0B0B0;
+		}
+	}
+
+	.save {
+		input {
+			display: none;
+		}
+	}
+
+	.task_edit_submit {
+
+			cursor: pointer;
+			width: 70px;
+			text-align: center;
+			//border: 1px solid #53868B;
+			background-color: #4D4D4D;
+			padding-top: 7px;
+			padding-bottom: 7px;
+			border-radius: 2px;
+			color: white;
+	}
+
+	.task_edit_cancle {
+		  cursor: pointer;
+		  width: 70px;
+		  text-align: center;
+			//border: 1px solid #8B1A1A;
+			background-color: #4D4D4D;
+			padding-top: 7px;
+			padding-bottom: 7px;
+			border-radius: 2px;
+			color: white;
+		
+	}
+}
+.task_add {
+
+	margin-top: 20px;
+
+	.task_add_text_field {
+		input {
+			width: 420px;
+			border: 2px solid #FFEC8B;
+			padding: 8px;
+			border-radius: 5px;
+			background-color: #FFFACD;
+		}
+	}
+
+	.task_add_submit {
+		input {
+			border: 1px solid #53868B;
+			background-color: #53868B;
+			padding: 10px;
+			border-radius: 5px;
+			color: white;
+		}
+	}
+}

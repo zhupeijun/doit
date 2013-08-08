@@ -1,0 +1,63 @@
+$(".finished_task_list").html("<%=j render @finished_tasks %>")
+$('.task_list').html("<%=j render @tasks %>");
+$('.project_list').html("<%=j render :template => 'projects/show' %>");
+//alert("task => show.js.erb");
+
+/****************************************************************************************/
+/*task jquery script */
+/****************************************************************************************/
+
+$(".task_content").click(function(){
+		$(this).parent().find(".task_content").hide();
+		$(this).parent().find(".task_edit").slideDown(500);
+});
+
+
+$(".task_edit_submit").click(function(){
+		$(this).parent().find(":submit").click();
+});
+
+$(".task_edit_cancle").click(function(){
+	$(this).parentsUntil(".task_item").parent().find(".task_edit").hide();
+	$(this).parentsUntil(".task_item").parent().find(".task_content").slideDown(500);
+});
+
+$(".task_finished_checkbox").find(":checkbox").click(function(){
+	$(this).parent().parent().find(":submit").click();
+});
+
+/****************************************************************************************/
+/*project jquery script */
+/****************************************************************************************/
+
+$(".project_menu_btn").click(function(){
+
+	if($(".project_menu").is(":visible")){
+		$(".project_menu").slideUp(300);
+	} else {
+		var p = $(this).parentsUntil(".project_parent").parent().find("div").first();
+		//p.css('background-color',"red");
+		p.after($(".project_menu"));
+		$(".project_menu").slideDown(300);
+	}
+});
+
+
+
+$(".project_menu_delete").click(function(){
+	$(this).parentsUntil(".project_parent").parent().find(".project_delete").click();
+});
+
+$(".title_td").click(function(){
+	//$(this).parent().find(".find_task").css("color","red");
+	$(this).parent().find(".find_task").click();
+});
+
+
+
+/****************************************************************************************/
+/*task fade out jquery script */
+/****************************************************************************************/
+
+$(".task_item").fadeIn(500);
+

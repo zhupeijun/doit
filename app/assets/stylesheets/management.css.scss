@@ -1,0 +1,148 @@
+// Place all the styles related to the Management controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.management {
+
+	.project_operation {
+		display: none;
+	}
+
+	.project_menu_btn {
+		width: 15px;
+		height: 15px;
+		background-color: #E0E0E0;
+		border-radius: 2px;
+	}
+
+	.project_menu_btn:hover {
+		width: 20px;
+		height: 20px;
+	}
+
+	.add_project {
+		margin-top: 20px;
+
+		.project_add_text_field {
+			input {
+				width: 100px;
+				border: 2px solid #FFEC8B;
+				padding: 8px;
+				border-radius: 5px;
+				background-color: #FFFACD;
+			}
+		}
+
+		.project_add_submit {
+			input {
+				border: 1px solid #53868B;
+				background-color: #53868B;
+				padding: 10px;
+				border-radius: 5px;
+				color: white;
+			}
+		}
+	}
+
+	.tp {
+		display:none;
+	}
+
+	.layout {
+		margin-left: auto;
+		margin-right: auto;
+
+		width: 900px;
+
+
+		border-width: 2px;
+		border-radius: 2px;
+		border-color: #D3D3D3;
+
+		.btn_div {
+			width: 80px;
+			background-color: #D3D3D3;
+			padding: 3px;
+		}
+
+		
+
+		.left {
+			width: 200px;
+			border-width: 1px;
+			border-color: #CFCFCF;
+			border-style: solid;
+
+			a {
+				text-decoration: none;
+			}
+			a:hover {
+				background: none;	
+				color: black;
+			}
+
+
+			.project_list {
+
+				.find_task {
+					display: none;
+				}
+
+				.project:hover {
+					background-color: #F2F2F2;
+					cursor: pointer;
+
+				}
+
+				.project_focus {
+					border: 1px solid white;
+					background-color: #F2F2F2;
+					border-radius: 2px;
+				}
+
+				.project {
+
+					border: 1px solid white;
+					border-radius: 2px;
+				}
+
+				.project_table {
+						padding: 0px;
+				}
+
+				.tag_td {
+					width: 30px;
+					//border: 1px solid black;
+				}
+
+				.title_td {
+					font-size: 13px;
+					width: 150px;
+					color: black;
+					padding: 5px;
+					//background-color: red;
+				}
+
+				.title_link_td {
+					display: none;
+				}
+
+				.tag {
+					width: 100px;
+					height: 12px;
+					border-radius: 6px;
+					background-color: #B0B0B0;
+				}
+			}
+		}
+
+		.right {
+			padding: 10px;
+			width: 680px;
+			border-width: 1px;
+			border-color: #CFCFCF;
+			border-style: solid;
+		}
+
+	}
+}

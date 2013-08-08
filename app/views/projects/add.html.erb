@@ -1,0 +1,18 @@
+<div class="add_project">
+	<%= form_tag "projects", remote: true do %>
+		<table>
+			<tr>
+				<td>
+					<div class="project_add_text_field">
+						<%= text_field_tag :title, params[:title] %>
+					</div>
+				</td>
+				<td>
+					<div class="project_add_submit">
+						<%= submit_tag 'Add' %>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<% end %>
+</div>

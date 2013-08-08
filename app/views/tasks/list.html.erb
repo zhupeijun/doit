@@ -1,0 +1,42 @@
+<div class="task_list_form">
+	<% if @tasks and @tasks.count != 0 then %>
+		<% @tasks.each do |t| %>
+		<div class="task_item">
+			<table>
+				<tr>
+					<td>
+						<div class="task_finished_btn"></div>
+					</td>
+					<td>
+						<div class="task_content">
+							<%= t.content %>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div class="task_edit">
+				<%= form_for t do |f| %>
+					<div class="task_edit_text_field">
+						<%= f.text_field :content %>
+					</div>
+					<div>
+					<table>
+						<tr>
+							<td class="save">
+								<div class="task_edit_submit">Save</div>
+								<%= f.submit 'Save' %>
+							</td>
+							<td>
+								<div class="task_edit_cancle">Cancel</div>
+							</td>
+						</tr>
+					</table>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+<% else %>
+		No Task! Add a New One?
+<% end %>
+</div>

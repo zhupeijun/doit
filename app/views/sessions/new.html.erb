@@ -1,0 +1,23 @@
+<h1>Please Login In</h1>
+
+<div>
+	<% if flash[:alert] %>
+		<p> <%= flash[:alert] %> </p>
+	<% end %>
+</div>
+<div>
+<%= form_tag do %>
+	<div>
+		<%= label_tag :user_name, 'UserName' %> <br>
+		<%= text_field_tag :user_name, params[:user_name] %>
+	</div>
+	<div>
+		<%= label_tag :password, 'Password' %> <br>
+		<%= password_field_tag :password, params[:password] %>
+	</div>
+	<div>
+		<%= submit_tag 'Login' %>
+	</div>
+<% end %>
+</div>
+

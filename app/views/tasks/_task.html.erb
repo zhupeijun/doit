@@ -1,0 +1,43 @@
+<div class="task_item">
+	<div class="task_content_div">
+		<table>
+			<tr>
+				<td>
+					<%= form_for task, method: :put, remote: true do |f| %>
+						<div class="task_finished_checkbox">
+							<%= f.check_box :is_finished %>
+						</div>
+						<div class="task_finished_btn">
+							<%= f.submit 'Save' %>
+						</div>
+					<% end %>  
+				</td>
+				<td>
+					<div class="task_content">
+						<%= task.content %>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="task_edit">
+		<%= form_for task, remote: true do |f| %>
+			<div class="task_edit_text_field">
+				<%= f.text_field :content %>
+			</div>
+			<div>
+				<table>
+					<tr>
+						<td class="save">
+							<div class="task_edit_submit">Save</div>
+							<%= f.submit 'Save' %>
+						</td>
+						<td>
+							<div class="task_edit_cancle">Cancel</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		<% end %>
+	</div>
+</div>

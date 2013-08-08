@@ -1,0 +1,38 @@
+<div class="layout">
+	<p>pid = <%= @pid %></p>
+	<p>task count = <%= @tasks.count %> </p>
+	<p class="pt"> This is the index </p>
+	<table>
+		<tr valign=top>
+			<td class="left">
+				<p>This is the left area </p>
+				<div class="project_show">
+					<%= render :template => "projects/show" %>
+				</div>
+			</td>
+			<td class="right">
+				<p>This is the right area </p>
+				<div class="task_list">
+					<%= render @tasks %>
+				</div>
+
+				
+				<div class="finished_task_list">
+					<%= render @finished_tasks %>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div>
+					<%= render :template => "projects/add" %>					
+				</div>
+			</td>
+			<td>
+				<div>
+					<%= render :template => "tasks/add" %>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

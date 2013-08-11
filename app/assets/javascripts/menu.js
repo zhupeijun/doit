@@ -9,6 +9,8 @@ $(document).ready(function() {
 		$(this).parent().find(".btn_click").click();
 	});
 
+
+	/*
 	$(".project_menu_btn").click(function(){
 
 		if($(".project_menu").is(":visible")){
@@ -21,11 +23,11 @@ $(document).ready(function() {
 		}
 	});
 
-	$(".title_td").click(function(){
-		//$(this).parent().find(".find_task").css("color","red");
-		$(this).parent().find(".find_task").click();
-	});
 
+	//$(".title_td").click(function(){
+	//	//$(this).parent().find(".find_task").css("color","red");
+	//	$(this).parent().find(".find_task").click();
+	//});
 
 	$(".task_content").click(function(){
 		$(this).parentsUntil(".task_item").parent().find(".task_content_div").hide();
@@ -34,7 +36,7 @@ $(document).ready(function() {
 
 
 	$(".task_edit_submit").click(function(){
-			$(this).parent().find(":submit").click();
+		$(this).parent().find(":submit").click();
 	});
 
 	$(".task_edit_cancle").click(function(){
@@ -50,5 +52,7 @@ $(document).ready(function() {
 	$(".task_finished_checkbox").find(":checkbox").click(function(){
 		$(this).parent().parent().find(":submit").click();
 	});
+
+*/
 
 });

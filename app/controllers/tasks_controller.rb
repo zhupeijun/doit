@@ -16,6 +16,12 @@ class TasksController < ApplicationController
 		puts session[:project_id]
 		puts "+++++++++++++++++++++++++++"
 
+		@time = "#{Time.now}"
+
+		puts "**************************"
+		puts @tasks.count
+		puts "**************************"
+
 		respond_to do |format|
 			format.js
 		end
@@ -73,6 +79,19 @@ class TasksController < ApplicationController
 		@tasks = Task.where("project_id = #{@pid} and is_finished = 'f' ")
 		@finished_tasks = Task.where("project_id = #{@pid} and is_finished = 't' ")
 
+
+		puts "+++++++++++++++++++++++++++++"
+		puts params[:task_due_time]
+		puts "+++++++++++++++++++++++++++++"
+
+		#DateTime.new(date[2],date[0],date[1])
+		task_params[:due_time] = DateTime.now
+
+		puts "----------------------------"
+		puts params[:task_due_time]
+		puts task_params[:due_date]
+		puts "----------------------------"
+
 		respond_to do |format|
 			if @task.update(task_params)
 				format.js
@@ -89,9 +108,13 @@ class TasksController < ApplicationController
 	# DELETE /tasks/1.json
 	def destroy
 		@task.destroy
+
+		@pid = session[:project_id]
+		@tasks = Task.where("project_id = #{@pid} and is_finished = 'f' ")
+		@finished_tasks = Task.where("project_id = #{@pid} and is_finished = 't' ")
+
 		respond_to do |format|
-			format.html { redirect_to tasks_url }
-			format.json { head :no_content }
+			format.js
 		end
 	end
 
@@ -103,6 +126,6 @@ class TasksController < ApplicationController
 
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def task_params
-			params.require(:task).permit(:content, :is_finished)
+			params.require(:task).permit(:content, :is_finished, :due_date)
 		end
 end

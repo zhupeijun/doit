@@ -1,8 +1,8 @@
 <div class="task_item">
 	<div class="task_content_div">
 		<table>
-			<tr>
-				<td>
+			<tr class="task_item_tr">
+				<td align="center" class="task_finished_checkbox_td">
 					<%= form_for task, method: :put, remote: true do |f| %>
 						<div class="task_finished_checkbox">
 							<%= f.check_box :is_finished %>
@@ -12,14 +12,39 @@
 						</div>
 					<% end %>  
 				</td>
-				<td>
-					<div class="task_content">
+				<td align="left" class="task_content">
+					<div>
 						<%= task.content %>
 					</div>
 				</td>
+				<td align="right" class="task_op_td">
+					<div class="task_due_date_td">
+						<% c = 'task_due_date_div' %>
+						<% if task.due_date then %>
+							<% if task.due_date < Date.current %>
+								<% c = 'task_due_date_over' %>
+							<% elsif task.due_date == Date.current %>
+								<% c = 'task_due_date_now' %>
+							<% end %>
+							<div class="<%= c %>">
+								<%= task.due_date %>
+							</div>
+						<% end %>
+					</div>
+				</td>
+
+				<td>
+					<div class="task_delete_div">
+						<%= link_to task_path(task), method: :delete, remote: true do %>
+							<span id="task_delete_link">DELETE</span>
+						<% end %>
+					</div>
+				</td>
+
 			</tr>
 		</table>
 	</div>
+
 	<div class="task_edit">
 		<%= form_for task, remote: true do |f| %>
 			<div class="task_edit_text_field">
@@ -34,6 +59,9 @@
 						</td>
 						<td>
 							<div class="task_edit_cancle">Cancel</div>
+						</td>
+						<td align="right">
+							<%= f.text_field :due_date, :id => task.id, :class => 'datepicker' %>
 						</td>
 					</tr>
 				</table>

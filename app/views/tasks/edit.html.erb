@@ -1,14 +1,24 @@
-<%= form_tag edit_tasks_path(@task) do %>
-	<div>
-		<%= text_field_tag :content, params[:content] %>
+
+	<div class="task_edit">
+		<%= form_for task, remote: true do |f| %>
+			<div class="task_edit_text_field">
+				<%= f.text_field :content %>
+			</div>
+			<div>
+				<table>
+					<tr>
+						<td class="save">
+							<div class="task_edit_submit">Save</div>
+							<%= f.submit 'Save' %>
+						</td>
+						<td>
+							<div class="task_edit_cancle">Cancel</div>
+						</td>
+						<td align="right">
+							<%= f.text_field :due_date, :class => 'datepicker' %>
+						</td>
+					</tr>
+				</table>
+			</div>
+		<% end %>
 	</div>
-	<div>
-		<table>
-			<tr>
-				<td>
-					<%= submit_tag 'Save' %>
-				</td>
-			</tr>
-		</table>
-	</div>
-<% end %>

@@ -10,6 +10,89 @@
 }
 
 
+
+.task_op_td {
+	width: 125px;
+}
+
+.task_delete_div {
+	//display: none;
+}
+
+.task_due_date_td {
+	width: 105px;
+}
+.task_due_date_div {
+	background-color: #9AC0CD;
+	color: white;
+	border-radius: 2px;
+	padding: 2px;
+	width: 100px;
+	text-align: center;
+}
+
+.task_due_date_over {
+	background-color: #A52A2A;
+	color: white;
+	border-radius: 2px;
+	padding: 2px;
+	width: 100px;
+	text-align: center;
+}
+
+.task_due_date_now {
+	background-color: #8FBC8F;
+	color: white;
+	border-radius: 2px;
+	padding: 2px;
+	width: 100px;
+	text-align: center;
+}
+
+
+.task_menu {
+	position: absolute;
+	left: 0;
+	right: 0;
+	display: none;
+	width: 200px;
+
+	border: 1px solid gray;
+}
+
+.task_menu_item {
+	padding: 7px;
+	background-color: #C2C2C2;
+}
+
+.task_menu_item:hover {
+	background-color: gray;
+	color: white;
+}
+
+.task_finished_checkbox_td {
+	width: 50px;
+	//background-color: gray;
+}
+
+.task_delete_div {
+
+	a {
+
+		padding: 2px;
+		color: white;
+		background-color: #F08080;
+		border-radius: 2px;
+		text-decoration: none;
+	}
+
+	a:hover {
+		background-color: #9BCD9B;
+	}
+	
+	//background-color: yellow;
+}
+
 .task_finished_checkbox {
 
 	input[type="checkbox"] {
@@ -27,11 +110,7 @@
 }
 
 .project_menu {
-
-	background-color: #FCFCFC;
-	border-radius: 2px;
-	border-top: 3px solid #7CCD7C;
-	border-bottom: 3px solid #7CCD7C;
+	border: 1px solid gray;
 	display: none;
 
 	.project_menu_delete {
@@ -46,8 +125,10 @@
 }
 
 .task_item {
-	display: none;
+	//display: none;
+	border-bottom: 1px solid #E3E3E3;
 }
+
 
 .task_content {
 	width: 500px;
@@ -55,27 +136,28 @@
 	//border: 1px solid #B8B8B8;
 	//background-color: #E3E3E3;
 	//border-radius: 2px;
-	border-bottom: 1px solid #E3E3E3;
+	
 }
 
-.task_content:hover {
+.task_item:hover {
 	cursor: pointer;
 	background-color: #F2F2F2;
+
 }
 
 
 .task_edit {
 	margin-top: 2px;
 	display: none;
-	width: 500px;
 	padding:  7px;
 	//border: 1px solid #9AC0CD;
 	background-color: #B0B0B0;
 	border-radius: 2px;
+	width: 640;
 
 	.task_edit_text_field {
 		input {
-			width: 470px;
+			width: 600px;
 			border: 2px solid #FFEC8B;
 			padding: 8px;
 			border-radius: 2px;

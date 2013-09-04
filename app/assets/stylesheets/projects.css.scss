@@ -2,10 +2,57 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.projects {
-	.project {
-		width: 100px;
-		background-color: gray;
-	}
-	background-color: black;
+.find_task {
+	display: none;
+}
+
+.project:hover {
+	background-color: #F2F2F2;
+	cursor: pointer;
+
+}
+
+.project_focus {
+	border: 1px solid white;
+	background-color: #F2F2F2;
+	border-top: none;
+	border-bottom: none;
+	border-left: 3px solid red;
+}
+
+.project {
+
+	border: 1px solid white;
+	border-top: none;
+	border-bottom: none;
+	border-left: 3px solid white;
+	font-size: 10px;
+}
+
+.project_table {
+		padding: 0px;
+}
+
+.tag_td {
+	width: 30px;
+	//border: 1px solid black;
+}
+
+.title_td {
+	font-size: 13px;
+	width: 150px;
+	color: black;
+	padding: 5px;
+	//background-color: red;
+}
+
+.title_link_td {
+	display: none;
+}
+
+.tag {
+	width: 100px;
+	height: 12px;
+	border-radius: 6px;
+	background-color: #B0B0B0;
 }

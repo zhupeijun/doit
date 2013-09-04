@@ -1,8 +1,10 @@
 class SessionsController < ApplicationController
-  def new
-  end
+	skip_before_filter :authorize, only: [:new, :create]
 
-  def create
+	def new
+	end
+
+	def create
 		user = User.find_by_user_name(params[:user_name])
 		if user and user.authenticate(params[:password])
 			session[:user_id] = user.id
@@ -11,8 +13,13 @@ class SessionsController < ApplicationController
 			redirect_to login_url, 
 				alert: "Invalid user or password"
 		end
-  end
+	end
 
-  def destroy
-  end
+	def destroy
+
+		session[:user_id] = nil
+		session[:project_id] = nil
+
+		redirect_to login_url
+	end
 end

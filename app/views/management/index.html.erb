@@ -1,28 +1,35 @@
 <div class="layout">
 
-	
-	<p>pid = <%= @pid %></p>
-	<p>task count = <%= @tasks.count %> </p>
-	<p class="pt"> This is the index </p>
-	<div class="message">
-		aaaaaaaaaaaaaaa
+	<!-- message field -->
+	<div id="test" style="display: none">
+		<p>pid = <%= @pid %></p>
+		<p>task count = <%= @tasks.count %> </p>
+		<p class="pt"> This is the index </p>
+		<div class="message">
+			aaaaaaaaaaaaaaa
+		</div>
 	</div>
-	<table>
+
+	<!-- main field -->
+
+	<div>
+		<div style="text-align: right; margin-right: 5px;">
+			<%= link_to 'delete finished task',  tasks_path(:type => 'finished'), method: :delete, remote: true %>
+		</div>
+	</div>
+	<table cellpadding="0" cellspacing="0">
 		<tr valign=top>
 			<td class="left">
-				<p>This is the left area </p>
 				<div class="project_show">
 					<%= render :template => "projects/show" %>
 				</div>
 			</td>
 			<td class="right">
-				<p>This is the right area </p>
 				<div class="task_list">
 					<%= render @tasks %>
 				</div>
-
-				
 				<div class="finished_task_list">
+					
 					<%= render @finished_tasks %>
 				</div>
 			</td>

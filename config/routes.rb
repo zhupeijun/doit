@@ -14,6 +14,8 @@ Doit::Application.routes.draw do
 
 	get 'index' => 'management#index'
 
+  delete 'tasks' => 'tasks#destroy_'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

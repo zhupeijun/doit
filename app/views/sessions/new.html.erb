@@ -1,23 +1,39 @@
-<h1>Please Login In</h1>
+<div class="layout">
+<table>
+	<tr>
+		<td>
+			<h1>Login In</h1>
 
-<div>
-	<% if flash[:alert] %>
-		<p> <%= flash[:alert] %> </p>
-	<% end %>
-</div>
-<div>
-<%= form_tag do %>
-	<div>
-		<%= label_tag :user_name, 'UserName' %> <br>
-		<%= text_field_tag :user_name, params[:user_name] %>
-	</div>
-	<div>
-		<%= label_tag :password, 'Password' %> <br>
-		<%= password_field_tag :password, params[:password] %>
-	</div>
-	<div>
-		<%= submit_tag 'Login' %>
-	</div>
-<% end %>
+			
+			<div>
+			<%= form_tag do %>
+				<div class="input_filed">
+					<%= label_tag :user_name, 'UserName' %> <br>
+					<%= text_field_tag :user_name, params[:user_name] %>
+				</div>
+				<div class="input_filed">
+					<%= label_tag :password, 'Password' %> <br>
+					<%= password_field_tag :password, params[:password] %>
+				</div>
+				<div class="btn_field">
+					<%= submit_tag 'Login' %>
+				</div>
+			<% end %>
+			</div>
+
+			<div>
+				<% if flash[:alert] %>
+					<p id="notice"> <%= flash[:alert] %> </p>
+				<% end %>
+			</div>
+		</td>
+		<td>
+			<div class="login_right">
+				<h2>No Account?</h2>
+				<%= link_to 'Register One', new_user_path %>
+			</div>
+		</td>
+	</tr>
+</table>
 </div>
 

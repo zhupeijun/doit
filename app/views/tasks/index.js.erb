@@ -1,7 +1,8 @@
 
 //$('.task_list').html('<script type="text/javascript" src="assets/task_jquery.js"></script><%=j render @tasks %>');
 
-$('.task_list').html('<script type="text/javascript" src="assets/task_jquery.js"></script><%=j render @tasks %>');
-$('.finished_task_list').html('<script type="text/javascript" src="assets/task_jquery.js"></script><%=j render @finished_tasks %>');
-$('.project_show').html('<%=j render :template => "projects/show" %>');
+$('.task_list').html('<%=j render @tasks %>');
+$('.finished_task_list').html('<script type="text/javascript" src="assets/task_jquery.js"></script><%=j render @finished_tasks, object: true %>');
+$(".project_show").html('<script type="text/javascript" src="assets/project_jquery.js"></script><%=j render :template => "projects/show" %>');
+
 //alert("1");

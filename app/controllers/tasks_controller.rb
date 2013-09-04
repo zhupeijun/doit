@@ -4,6 +4,7 @@ class TasksController < ApplicationController
 	# GET /tasks
 	# GET /tasks.json
 	def index
+
 		session[:project_id] = params[:project_id]
 
 		@pid = session[:project_id]
@@ -11,6 +12,10 @@ class TasksController < ApplicationController
 		@tasks = Task.where("project_id = #{@pid} and is_finished = 'f' ")
 		@finished_tasks = Task.where("project_id = #{@pid} and is_finished = 't' ")
 		@projects = Project.where("user_id = #{session[:user_id]}")
+
+		if params[:sort] then
+			@tasks.order("#{params[:sort]} asc")
+		end
 
 		puts "+++++++++++++++++++++++++++"
 		puts session[:project_id]
@@ -56,6 +61,8 @@ class TasksController < ApplicationController
 		@tasks = Task.where("project_id = #{@pid} and is_finished = 'f' ")
 		@finished_tasks = Task.where("project_id = #{@pid} and is_finished = 't' ")
 
+		@projects = Project.where("user_id = #{session[:user_id]}")
+
 		respond_to do |format|
 			if @task.save
 				format.js
@@ -78,6 +85,7 @@ class TasksController < ApplicationController
 
 		@tasks = Task.where("project_id = #{@pid} and is_finished = 'f' ")
 		@finished_tasks = Task.where("project_id = #{@pid} and is_finished = 't' ")
+		@projects = Project.where("user_id = #{session[:user_id]}")
 
 
 		puts "+++++++++++++++++++++++++++++"
@@ -107,16 +115,42 @@ class TasksController < ApplicationController
 	# DELETE /tasks/1
 	# DELETE /tasks/1.json
 	def destroy
+
 		@task.destroy
 
 		@pid = session[:project_id]
 		@tasks = Task.where("project_id = #{@pid} and is_finished = 'f' ")
 		@finished_tasks = Task.where("project_id = #{@pid} and is_finished = 't' ")
+		@projects = Project.where("user_id = #{session[:user_id]}")
 
 		respond_to do |format|
 			format.js
 		end
 	end
+
+	# DELETE tasks_path
+	def destroy_
+
+
+
+		@pid = session[:project_id]
+
+		selected_tasks = Task.where("project_id = #{@pid} and is_finished = 't'")
+
+		selected_tasks.each do |st|
+			Task.delete(st)
+		end
+
+
+		@tasks = Task.where("project_id = #{@pid} and is_finished = 'f' ")
+		@finished_tasks = Task.where("project_id = #{@pid} and is_finished = 't' ")
+		@projects = Project.where("user_id = #{session[:user_id]}")
+
+		respond_to do |format|
+			format.js
+		end
+	end
+
 
 	private
 		# Use callbacks to share common setup or constraints between actions.
@@ -126,6 +160,6 @@ class TasksController < ApplicationController
 
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def task_params
-			params.require(:task).permit(:content, :is_finished, :due_date)
+			params.require(:task).permit(:content, :is_finished, :due_date, :priority)
 		end
 end

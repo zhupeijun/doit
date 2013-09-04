@@ -1,4 +1,3 @@
-<script type="text/javascript" src="assets/project_jquery.js"></script>
 <div class="project_menu">
 	<div class="project_menu_delete">
 		Delete this project
@@ -11,7 +10,7 @@
 			<% c = "project_focus" %>
 		<% end %>
 		<div class="project_parent">
-			<div class="<%= c %>">
+			<div class="<%= p.id.to_s == @pid.to_s ? 'project_focus' : 'project' %>">
 				<table class="project_table">
 					<tr>
 						<td align=center class="tag_td">
@@ -19,6 +18,12 @@
 						</td>
 						<td class="title_td">
 							<%= p.title %>
+						</td>
+						<td align="right">
+							<% fn = Task.where("project_id = #{p.id} and is_finished = 'f'").count %>
+							<% if fn > 0 %>
+								<span class="padding_count"><%= fn %></span>
+							<% end %>
 						</td>
 						<td class="title_link_td">
 							<%= link_to tasks_path(:project_id => p), remote: true do %>

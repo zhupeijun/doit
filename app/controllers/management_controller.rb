@@ -1,12 +1,14 @@
 class ManagementController < ApplicationController
-  def index
+	def index
 		@projects = Project.where("user_id = #{session[:user_id]}")
+
+		@pid = -1;
 
 		if session[:project_id] then
 			@pid = session[:project_id]
-		else 
-			@pid = -1
 		end
+
+		@cur_pid = params[:project_id]
 
 		debug_it(@pid)
 		debug_it(session[:project_id])

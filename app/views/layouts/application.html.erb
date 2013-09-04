@@ -8,11 +8,31 @@
 </head>
 <body class='<%= controller.controller_name %>'>
 	<div id="header">
+		
+		<div class="user_info">
+			<% if session[:user_id] %>
+				<% user = User.find_by_id(session[:user_id]) %>
+				<%= link_to "#{user.user_name}", edit_user_path(user) %> | 
+				<%= link_to 'Logout', logout_url, method: :delete %>
+			<% end %>
+		</div>
+		<div class="logo">
+			<%= link_to index_url, method: :get do %>
+				<%= image_tag("logo.png") %>
+			<% end %>
+		</div>
 	</div>
 
-	
+	<button id="overlay_btn" style="display: none">OverLay</button>
+
+	<div class="overlay" style="position: absolute; width: 100%; z-index: 1100; background-color: rgb(0, 0, 0); opacity: 0.5; cursor: pointer; left:0; top: 0; display: none;"></div>
+
+	<div id="w" style="position: absolute; height:300px; width: 400px; background-color: white; display:none; border-radius: 7px; box-shadow: 0 0 70px black;">
+		<h1>Set Up</h1>
+	</div>
 	<div id="main">
 		<%= yield %>
 	</div>
+
 </body>
 </html>

@@ -1,8 +1,10 @@
 <div class="task_item">
+	<div>
+	<table class="task_content_table"><tr><td>
 	<div class="task_content_div">
-		<table>
+		<table cellspacing="0" cellpadding="0">
 			<tr class="task_item_tr">
-				<td align="center" class="task_finished_checkbox_td">
+				<td class="task_finished_checkbox_td">
 					<%= form_for task, method: :put, remote: true do |f| %>
 						<div class="task_finished_checkbox">
 							<%= f.check_box :is_finished %>
@@ -32,40 +34,52 @@
 						<% end %>
 					</div>
 				</td>
-
-				<td>
-					<div class="task_delete_div">
-						<%= link_to task_path(task), method: :delete, remote: true do %>
-							<span id="task_delete_link">DELETE</span>
-						<% end %>
-					</div>
-				</td>
-
 			</tr>
 		</table>
 	</div>
-
+	</td><td>
+	<span style="display: inline-block">
+		<div class="task_delete_div">
+			<%= link_to task_path(task), method: :delete, remote: true do %>
+				<span id="task_delete_link">D</span>
+			<% end %>
+		</div>
+	</span>
+	</td></tr></table>
 	<div class="task_edit">
 		<%= form_for task, remote: true do |f| %>
+
 			<div class="task_edit_text_field">
 				<%= f.text_field :content %>
 			</div>
-			<div>
-				<table>
-					<tr>
-						<td class="save">
+
+			<table cellpadding="0" cellspacing="0" width="606px">
+				<tr>
+					<td width="55px">
+						<div class="save">
 							<div class="task_edit_submit">Save</div>
 							<%= f.submit 'Save' %>
-						</td>
-						<td>
+						</div>
+					</td>
+					<td width="55px">
+						<div class="cancel">
 							<div class="task_edit_cancle">Cancel</div>
-						</td>
-						<td align="right">
+						</div>
+					</td>
+					<td>
+						<span style="display: none;">
+							<%= f.select(:priority, {"1" => 1, "2" => 2, "3" => 3, "4" => 4}) %>
+						</span>
+						
+					</td>
+					<td>
+						<div class="date" align="right">
 							<%= f.text_field :due_date, :id => task.id, :class => 'datepicker' %>
-						</td>
-					</tr>
-				</table>
-			</div>
+						</div>
+					</td>
+				</tr>
+			</table>
 		<% end %>
+	</div>
 	</div>
 </div>

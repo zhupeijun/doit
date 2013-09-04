@@ -1,6 +1,21 @@
-<h1>Editing user</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="layout">
+	<div class="register">
+		<table>
+			<tr>
+				<td>
+					<div class="register_left">
+						<h1>Edit Info</h1>
+						<%= render 'form' %>
+					</div>
+				</td>
+				<td>
+					<div class="register_right">
+						<div>
+							<p id="note">Don't forget what you input!</p>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

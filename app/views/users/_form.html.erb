@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="input_filed">
     <%= f.label :user_name %><br>
     <%= f.text_field :user_name %>
   </div>
-  <div class="field">
+  <div class="input_filed">
     <%= f.label :email %><br>
     <%= f.email_field :email %>
   </div>
-  <div class="field">
+  <div class="input_filed">
     <%= f.label :password %><br>
 		<%= f.password_field :password %>
 	</div>
-	<div>
+	<div class="input_filed">
 		<%= f.label :password_confirmation %><br>
 		<%= f.password_field :password_confirmation %>
 	</div>
-  <div class="field">
+  <div class="input_filed" style="display:none">
     <%= f.label :time_zone %><br>
     <%= f.text_field :time_zone %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="btn_field">
+    <%= f.submit 'Submit' %>
   </div>
 <% end %>

@@ -15,6 +15,15 @@
 		border-radius: 2px;
 	}
 
+	.padding_count {
+		border-radius: 5px;
+		background-color: #EE5C42;
+		color: white;
+		width: 20px;
+		display: block;
+		text-align: center;
+	}
+
 	.project_menu_btn:hover {
 		width: 20px;
 		height: 20px;
@@ -26,18 +35,19 @@
 		.project_add_text_field {
 			input {
 				width: 100px;
-				border: 2px solid #FFEC8B;
-				padding: 8px;
+				border: 1px solid #DCDCDC;
+				padding: 7px;
 				border-radius: 5px;
-				background-color: #FFFACD;
+				//background-color: #FFFACD;
 			}
 		}
 
 		.project_add_submit {
 			input {
 				border: 1px solid #53868B;
-				background-color: #53868B;
-				padding: 10px;
+				background-color: #4D4D4D;
+				padding: 7px;
+				width: 80px;
 				border-radius: 5px;
 				color: white;
 			}
@@ -68,10 +78,10 @@
 		
 
 		.left {
-			width: 200px;
-			border-width: 1px;
-			border-color: #CFCFCF;
-			border-style: solid;
+			width: 210px;
+			//border-width: 1px;
+			//border-color: #CFCFCF;
+			//border-style: solid;
 
 			a {
 				text-decoration: none;
@@ -82,66 +92,25 @@
 			}
 
 
-			.project_list {
-
-				.find_task {
-					display: none;
-				}
-
-				.project:hover {
-					background-color: #F2F2F2;
-					cursor: pointer;
-
-				}
-
-				.project_focus {
-					border: 1px solid white;
-					background-color: #F2F2F2;
-					border-radius: 2px;
-				}
-
-				.project {
-
-					border: 1px solid white;
-					border-radius: 2px;
-				}
-
-				.project_table {
-						padding: 0px;
-				}
-
-				.tag_td {
-					width: 30px;
-					//border: 1px solid black;
-				}
-
-				.title_td {
-					font-size: 13px;
-					width: 150px;
-					color: black;
-					padding: 5px;
-					//background-color: red;
-				}
-
-				.title_link_td {
-					display: none;
-				}
-
-				.tag {
-					width: 100px;
-					height: 12px;
-					border-radius: 6px;
-					background-color: #B0B0B0;
-				}
-			}
+			
 		}
 
 		.right {
-			padding: 10px;
+			//padding: 10px;
 			width: 680px;
-			border-width: 1px;
-			border-color: #CFCFCF;
-			border-style: solid;
+			//border-width: 1px;
+			//border-color: #CFCFCF;
+			//border-style: solid;
+
+			.task_list {
+
+				margin-left: 25px;
+			}
+
+			.finisehd_task_list {
+
+				margin-left: 25px;
+			}
 		}
 
 	}

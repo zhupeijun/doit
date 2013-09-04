@@ -31,3 +31,41 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+
+#header {
+	margin-left: auto;
+	margin-right: auto;
+	width: 900px;
+
+
+	.logo {
+
+
+		a {
+			border: none;
+		}
+
+		a:hover {
+			border: none;
+			background: none;
+		}
+
+		a:visited {
+			border: none;
+		}
+		a:link {
+			border: none;
+		}
+
+		img {
+			border: none;
+		}
+	}
+}
+
+.user_info {
+	width: 100px;
+	text-align: right;
+	float: right;
+}

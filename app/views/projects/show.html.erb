@@ -20,7 +20,7 @@
 							<%= p.title %>
 						</td>
 						<td align="right">
-							<% fn = Task.where("project_id = #{p.id} and is_finished = 'f'").count %>
+							<% fn = Task.where("project_id = ? and is_finished = 'f'", p.id).count %>
 							<% if fn > 0 %>
 								<span class="padding_count"><%= fn %></span>
 							<% end %>

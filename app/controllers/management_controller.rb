@@ -1,6 +1,6 @@
 class ManagementController < ApplicationController
 	def index
-		@projects = Project.where("user_id = #{session[:user_id]}")
+		@projects = Project.where("user_id = ?", session[:user_id])
 
 		@pid = -1;
 
@@ -13,8 +13,8 @@ class ManagementController < ApplicationController
 		debug_it(@pid)
 		debug_it(session[:project_id])
 
-		@tasks = Task.where("project_id = #{@pid} and is_finished = 'f' ")
-		@finished_tasks = Task.where("project_id = #{@pid} and is_finished = 't' ")
+		@tasks = Task.where("project_id = ? and is_finished = 'f' ", @pid)
+		@finished_tasks = Task.where("project_id = ? and is_finished = 't' ", @pid)
 
 
 	end

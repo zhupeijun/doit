@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
 		@project.title = params[:title]
 		@project.tag = 0
 		@project.user_id = session[:user_id]
-    @projects = Project.where("user_id = #{session[:user_id]}")
+    @projects = Project.where("user_id = ?", session[:user_id])
 
     respond_to do |format|
       if @project.save
@@ -62,7 +62,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1.json
   def destroy
     @project.destroy
-    @projects = Project.where("user_id = #{session[:user_id]}")
+    @projects = Project.where("user_id = ?", session[:user_id])
 
     session[:project_id] = nil
 

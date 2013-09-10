@@ -9,12 +9,12 @@ class TasksController < ApplicationController
 
 		@pid = session[:project_id]
 
-		@tasks = Task.where("project_id = #{@pid} and is_finished = 'f' ")
-		@finished_tasks = Task.where("project_id = #{@pid} and is_finished = 't' ")
-		@projects = Project.where("user_id = #{session[:user_id]}")
+		@tasks = Task.where("project_id = ? and is_finished = 'f' ", @pid)
+		@finished_tasks = Task.where("project_id = ? and is_finished = 't' ", @pid)
+		@projects = Project.where("user_id = ?", session[:user_id])
 
 		if params[:sort] then
-			@tasks.order("#{params[:sort]} asc")
+			@tasks.order("? asc", params[:sort])
 		end
 
 		puts "+++++++++++++++++++++++++++"
@@ -58,10 +58,10 @@ class TasksController < ApplicationController
 		@task.project_id = @pid
 		@task.is_finished = false;
 
-		@tasks = Task.where("project_id = #{@pid} and is_finished = 'f' ")
-		@finished_tasks = Task.where("project_id = #{@pid} and is_finished = 't' ")
+		@tasks = Task.where("project_id = ? and is_finished = 'f' ", @pid)
+		@finished_tasks = Task.where("project_id = ? and is_finished = 't' ", @pid)
 
-		@projects = Project.where("user_id = #{session[:user_id]}")
+		@projects = Project.where("user_id = ?", session[:user_id])
 
 		respond_to do |format|
 			if @task.save
@@ -83,9 +83,9 @@ class TasksController < ApplicationController
 
 		@pid = session[:project_id]
 
-		@tasks = Task.where("project_id = #{@pid} and is_finished = 'f' ")
-		@finished_tasks = Task.where("project_id = #{@pid} and is_finished = 't' ")
-		@projects = Project.where("user_id = #{session[:user_id]}")
+		@tasks = Task.where("project_id = ? and is_finished = 'f' ", @pid)
+		@finished_tasks = Task.where("project_id = ? and is_finished = 't' ", @pid)
+		@projects = Project.where("user_id = ?", session[:user_id])
 
 
 		puts "+++++++++++++++++++++++++++++"
@@ -119,9 +119,9 @@ class TasksController < ApplicationController
 		@task.destroy
 
 		@pid = session[:project_id]
-		@tasks = Task.where("project_id = #{@pid} and is_finished = 'f' ")
-		@finished_tasks = Task.where("project_id = #{@pid} and is_finished = 't' ")
-		@projects = Project.where("user_id = #{session[:user_id]}")
+		@tasks = Task.where("project_id = ? and is_finished = 'f' ", @pid)
+		@finished_tasks = Task.where("project_id = ? and is_finished = 't' ", @pid)
+		@projects = Project.where("user_id = ?", session[:user_id])
 
 		respond_to do |format|
 			format.js
@@ -135,16 +135,16 @@ class TasksController < ApplicationController
 
 		@pid = session[:project_id]
 
-		selected_tasks = Task.where("project_id = #{@pid} and is_finished = 't'")
+		selected_tasks = Task.where("project_id = ? and is_finished = 't'", @pid)
 
 		selected_tasks.each do |st|
 			Task.delete(st)
 		end
 
 
-		@tasks = Task.where("project_id = #{@pid} and is_finished = 'f' ")
-		@finished_tasks = Task.where("project_id = #{@pid} and is_finished = 't' ")
-		@projects = Project.where("user_id = #{session[:user_id]}")
+		@tasks = Task.where("project_id = ? and is_finished = 'f' ", @pid)
+		@finished_tasks = Task.where("project_id = ? and is_finished = 't' ", @pid)
+		@projects = Project.where("user_id = ?", session[:user_id])
 
 		respond_to do |format|
 			format.js
